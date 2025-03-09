@@ -7,6 +7,7 @@ from flask_sqlalchemy import SQLAlchemy  # 导入扩展类
 import os
 import click
 
+#hello
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.root_path, 'data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # 关闭对模型修改的监控
