@@ -3,10 +3,15 @@ from markupsafe import escape
 from flask import Flask, render_template
 from flask import url_for
 from markupsafe import escape
+from flask_sqlalchemy import SQLAlchemy  # 导入扩展类
+import os
 
 app = Flask(__name__)
+
 #hello
 #hello
+db = SQLAlchemy(app)  # 初始化扩展，传入程序实例 app
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + os.path.join(app.root_path, 'data.db')
 @app.route('/')
 def index():
     return render_template('index.html', name=name, movies=movies)
